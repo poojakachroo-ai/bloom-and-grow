@@ -22,7 +22,7 @@ const services = [
       "Make every celebration meaningful and participative. We design creative experiences around Diwali, Christmas, Women's Day, Independence Day and more — tailored to your team size and culture.",
     highlights: ["Diwali", "Christmas", "Women's Day", "Independence Day"],
     image: "/images/service-festival.jpg",
-    link: "#",
+    link: "/services/festival-events",
   },
   {
     title: "Wellness & CSR Engagement",
@@ -35,7 +35,7 @@ const services = [
       "Mindful Art Sessions",
     ],
     image: "/images/hero1.jpg",
-    link: "#",
+    link: "/services/wellness-csr",
   },
   {
     title: "Corporate Gifting & Branded Keepsakes",
