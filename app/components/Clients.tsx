@@ -1,28 +1,44 @@
-"use client";
+'use client'
 
-import { content } from "../../content";
+const clients = [
+  { name: "Deloitte", icon: "deloitte", color: "#86BC25" },
+  { name: "Google", icon: "google", color: "#4285F4" },
+  { name: "PwC", icon: "pwc", color: "#D04A02" },
+  { name: "Goldman Sachs", icon: "goldmansachs", color: "#6495ED" },
+  { name: "IKEA", icon: "ikea", color: "#0058A3" },
+  { name: "Intuit", icon: "intuit", color: "#236cff" },
+  { name: "Wipro", icon: "wipro", color: "#341C6A" },
+  { name: "Walmart", icon: "walmart", color: "#0071CE" },
+  { name: "Titan", icon: "titan", color: "#CC0000" },
+  { name: "Urban Ladder", icon: "urbanladder", color: "#FF6B35" }
+]
 
 export default function Clients() {
   return (
-    <section className="bg-[#FAF7F2] py-12 sm:py-16">
-      <div className="px-4 sm:px-6">
-        <h2 className="mb-6 text-2xl font-bold text-[#2C2C2C] sm:text-3xl">
-          Trusted by
-        </h2>
-        <div className="-mx-4 flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:-mx-6 sm:gap-6 sm:px-6">
-          {content.clients.map((client) => (
-            <div
-              key={client.name}
-              className="flex min-w-[140px] flex-shrink-0 flex-col items-center justify-center gap-2 rounded-lg bg-[#d1d5db] px-4 py-6 sm:min-w-[160px] sm:py-8"
-              title={client.name}
-            >
-              <span className="text-center text-sm font-medium text-[#4b5563] sm:text-base">
-                {client.name}
-              </span>
+    <section className="py-4 bg-white">
+      <h2 className="text-center text-2xl font-bold mb-8" style={{color: '#C4783A'}}>
+        Trusted By
+      </h2>
+      <div className="overflow-hidden">
+        <div className="flex animate-marquee gap-10 items-center">
+          {[...clients, ...clients].map((client, i) => (
+            <div key={i} className="shrink-0 flex items-center justify-center">
+              <img
+                src={`https://cdn.simpleicons.org/${client.icon}`}
+                alt={client.name}
+                className="h-8 w-8 object-contain"
+                style={{ filter: 'grayscale(100%) opacity(60%)' }}
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none'
+                  const sibling = e.currentTarget.nextElementSibling as HTMLElement
+                  if (sibling) sibling.style.display = 'block'
+                }}
+              />
+              <span className="text-xs text-gray-500 font-medium whitespace-nowrap hidden">{client.name}</span>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
+  )
 }

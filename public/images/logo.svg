@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" width="240" height="64">
+  <defs>
+    <style>
+      .mono { font-family: Georgia, 'Times New Roman', serif; }
+      .wordmark { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    </style>
+  </defs>
+  
+  <!-- Monogram circle background -->
+  <circle cx="32" cy="32" r="30" fill="#c6d20b" opacity="0.12"/>
+  
+  <!-- B in lime -->
+  <text x="10" y="46" class="mono" font-size="42" font-weight="900" fill="#c6d20b">B</text>
+  
+  <!-- & small, teal, superscript style -->
+  <text x="34" y="28" class="mono" font-size="16" font-weight="700" fill="#1d9b76">&amp;</text>
+  
+  <!-- G in teal -->
+  <text x="44" y="46" class="mono" font-size="42" font-weight="900" fill="#1d9b76">G</text>
+
+  <!-- Vertical divider -->
+  <line x1="90" y1="12" x2="90" y2="52" stroke="#c6d20b" stroke-width="1.5" opacity="0.6"/>
+
+  <!-- Bloom & Grow wordmark -->
+  <text x="102" y="30" class="wordmark" font-size="14" font-weight="700" letter-spacing="2" fill="#c6d20b">BLOOM</text>
+  <text x="102" y="50" class="wordmark" font-size="14" font-weight="700" letter-spacing="2" fill="#1d9b76">&amp; GROW</text>
+</svg>

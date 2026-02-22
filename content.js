@@ -38,6 +38,20 @@ export const content = {
       link: "/services/wellness-csr",
       photo: "/images/wellness-csr.jpg",
     },
+    {
+      slug: "corporate-gifting",
+      title: "Corporate Gifting & Branded Keepsakes",
+      description:
+        "Meaningful, handcrafted gifts that leave a lasting impression. From custom art kits to branded wellness hampers — thoughtfully curated for employees, clients, and events.",
+      highlights: [
+        "Custom Art Kits",
+        "Wellness Hampers",
+        "Branded Keepsakes",
+        "Bulk Orders",
+      ],
+      image: "/images/hero3.jpg",
+      link: "/services/corporate-gifting",
+    },
   ],
   clients: [
     { name: "Wipro", logo: "/images/clients/wipro.png" },

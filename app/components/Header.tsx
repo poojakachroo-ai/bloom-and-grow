@@ -1,20 +1,25 @@
 "use client";
 
+import Image from "next/image";
 import { content } from "../../content";
 
 const whatsappUrl = `https://wa.me/${content.company.whatsapp.number}?text=${encodeURIComponent(content.company.whatsapp.message)}`;
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#FAF7F2] px-4 py-3 shadow-sm sm:px-6">
-      <span className="text-lg font-semibold text-[#2C2C2C]">
-        {content.company.name}
-      </span>
+    <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#ffffff] px-4 py-3 shadow-sm sm:px-6">
+      <Image
+        src="/images/logo.svg"
+        alt="Bloom & Grow"
+        width={160}
+        height={43}
+        priority
+      />
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-4 py-2 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90 active:opacity-95"
+        className="inline-flex items-center gap-2 rounded-full bg-[#25D366] px-3 py-1.5 text-sm font-medium text-white shadow-sm transition-opacity hover:opacity-90 active:opacity-95"
       >
         <svg
           className="h-5 w-5"

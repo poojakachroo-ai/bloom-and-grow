@@ -6,7 +6,7 @@ const whatsappUrl = `https://wa.me/${content.company.whatsapp.number}?text=${enc
 
 export default function CallToAction() {
   return (
-    <section className="bg-[#C4783A] px-4 py-12 sm:px-6 sm:py-16">
+    <section className="bg-[#C4783A] px-4 py-10 sm:px-6">
       <div className="mx-auto max-w-xl text-center">
         <h2 className="text-2xl font-bold text-white sm:text-3xl">
           Ready to create something unforgettable?
