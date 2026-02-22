@@ -8,13 +8,15 @@ const whatsappUrl = `https://wa.me/${content.company.whatsapp.number}?text=${enc
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#ffffff] px-4 py-3 shadow-sm sm:px-6">
-      <Image
-        src="/images/logo.svg"
-        alt="Bloom & Grow"
-        width={160}
-        height={43}
-        priority
-      />
+      <a href="/">
+        <Image
+          src="/images/logo.svg"
+          alt="Bloom & Grow"
+          width={160}
+          height={43}
+          priority
+        />
+      </a>
       <a
         href={whatsappUrl}
         target="_blank"
