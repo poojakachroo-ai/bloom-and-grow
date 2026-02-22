@@ -14,14 +14,14 @@ const services = [
       "Sketch & Doodle Sessions",
     ],
     image: "/images/hero2.jpg",
-    link: "#",
+    link: "/services/team-building",
   },
   {
     title: "Festival & Theme-Based Activities",
     description:
       "Make every celebration meaningful and participative. We design creative experiences around Diwali, Christmas, Women's Day, Independence Day and more — tailored to your team size and culture.",
     highlights: ["Diwali", "Christmas", "Women's Day", "Independence Day"],
-    image: "/images/hero3.jpg",
+    image: "/images/service-festival.jpg",
     link: "#",
   },
   {
