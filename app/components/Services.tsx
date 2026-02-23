@@ -15,6 +15,7 @@ const services = [
     ],
     image: "/images/hero2.jpg",
     link: "/services/team-building",
+    bg: "#FAF7F2",
   },
   {
     title: "Festival & Theme-Based Activities",
@@ -23,6 +24,7 @@ const services = [
     highlights: ["Diwali", "Christmas", "Women's Day", "Independence Day"],
     image: "/images/service-festival.jpg",
     link: "/services/festival-events",
+    bg: "#f0ebe3",
   },
   {
     title: "Wellness & CSR Engagement",
@@ -36,6 +38,7 @@ const services = [
     ],
     image: "/images/hero1.jpg",
     link: "/services/wellness-csr",
+    bg: "#FAF7F2",
   },
   {
     title: "Corporate Gifting & Branded Keepsakes",
@@ -49,79 +52,84 @@ const services = [
     ],
     image: "/images/hero3.jpg",
     link: "/services/corporate-gifting",
+    bg: "#f0ebe3",
   },
 ];
 
 export default function Services() {
   return (
-    <section className="bg-[#FAF7F2] py-8">
-      <div className="px-4 sm:px-6">
+    <section>
+      <div className="px-4 pt-10 pb-4 sm:px-6 bg-[#FAF7F2]">
         <h2
-          className="mx-auto max-w-max border-b border-[#1d9b76] mb-4 pb-1 text-2xl font-bold sm:text-3xl"
+          className="mx-auto max-w-max border-b border-[#1d9b76] mb-2 pb-1 text-2xl font-bold uppercase tracking-wide sm:text-3xl"
           style={{ color: "#C4783A" }}
         >
           What We Do
         </h2>
-        <p className="mx-auto mt-3 text-center text-base text-[#6b7280]">
+        <p className="mt-3 text-center text-base text-[#6b7280]">
           Experiential activities that bring teams together
         </p>
-        <div className="mt-6 grid grid-cols-1 gap-2 md:grid-cols-2">
-          {services.map((service, index) => (
-            <article
-              key={index}
-              className="group relative h-[400px] w-full overflow-hidden rounded-xl"
+      </div>
+
+      {services.map((service, index) => {
+        const imageLeft = index % 2 === 0;
+        return (
+          <div
+            key={service.title}
+            style={{ backgroundColor: service.bg }}
+            className="px-4 py-12 sm:px-6"
+          >
+            <div
+              className={`mx-auto flex max-w-5xl flex-col gap-8 md:flex-row md:items-center ${
+                imageLeft ? "" : "md:flex-row-reverse"
+              }`}
             >
-              {/* Background image */}
-              <div className="absolute inset-0">
+              {/* Image */}
+              <div className="relative h-72 w-full overflow-hidden rounded-2xl shadow-md md:h-96 md:w-1/2 shrink-0">
                 <Image
                   src={service.image}
-                  alt=""
+                  alt={service.title}
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover object-center"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
-              {/* Dark gradient overlay */}
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)",
-                }}
-                aria-hidden
-              />
-              {/* Card content */}
-              <div className="absolute inset-0 flex flex-col justify-end p-5">
-                <h3 className="text-xl font-bold text-white sm:text-2xl">
+
+              {/* Text */}
+              <div className="md:w-1/2">
+                <h3
+                  className="text-2xl font-bold leading-snug md:text-3xl"
+                  style={{ color: "#C4783A" }}
+                >
                   {service.title}
                 </h3>
-                <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-white/80">
+                <p className="mt-4 text-base leading-relaxed text-[#6b7280]">
                   {service.description}
                 </p>
                 {/* Highlight pills */}
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {service.highlights.map((highlight) => (
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {service.highlights.map((h) => (
                     <span
-                      key={highlight}
-                      className="rounded-full px-2.5 py-1 text-xs font-medium text-white"
+                      key={h}
+                      className="rounded-full px-3 py-1 text-xs font-semibold text-white"
                       style={{ backgroundColor: "#1d9b76" }}
                     >
-                      {highlight}
+                      {h}
                     </span>
                   ))}
                 </div>
                 <a
                   href={service.link}
-                  className="mt-3 self-end text-xs font-medium"
-                  style={{ color: "#1d9b76" }}
+                  className="mt-6 inline-block rounded-full border-2 px-6 py-2.5 text-sm font-semibold transition-colors hover:bg-[#C4783A] hover:text-white"
+                  style={{ borderColor: "#C4783A", color: "#C4783A" }}
                 >
                   Learn More →
                 </a>
               </div>
-            </article>
-          ))}
-        </div>
-      </div>
+            </div>
+          </div>
+        );
+      })}
     </section>
   );
 }

@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Bloom & Grow | Corporate Events & Workshops | Bangalore",
   description:
     "Unforgettable team experiences, beautifully crafted. Team building, festival events, wellness & CSR activities in Bangalore.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
