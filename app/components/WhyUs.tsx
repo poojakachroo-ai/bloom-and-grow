@@ -41,7 +41,7 @@ export default function WhyUs() {
       <div className="mx-auto flex max-w-4xl flex-wrap justify-center gap-8">
         {features.map((f) => (
           <div key={f.label} className="flex flex-col items-center gap-3" style={{ width: 140 }}>
-            <div className="relative h-32 w-32 overflow-hidden rounded-full shadow-md ring-4 ring-white">
+            <div className="relative h-32 w-32 overflow-hidden rounded-full shadow-sm ring-2 ring-[#C4783A]/25">
               <Image
                 src={f.image}
                 alt={f.label}
@@ -50,7 +50,7 @@ export default function WhyUs() {
                 sizes="128px"
               />
             </div>
-            <p className="text-center text-xs font-semibold uppercase tracking-wider text-[#2C2C2C]">
+            <p className="text-center text-xs font-semibold uppercase tracking-widest text-[#6b7280]">
               {f.label}
             </p>
           </div>

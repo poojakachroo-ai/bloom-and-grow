@@ -67,16 +67,18 @@ const services = [
 export default function Services() {
   return (
     <section>
-      <div className="px-4 pt-10 pb-4 sm:px-6 bg-[#FAF7F2]">
-        <h2
-          className="mx-auto max-w-max border-b border-[#1d9b76] mb-2 pb-1 text-2xl font-bold uppercase tracking-wide sm:text-3xl"
-          style={{ color: "#C4783A" }}
-        >
-          What We Do
-        </h2>
-        <p className="mt-3 text-center text-base text-[#6b7280]">
-          Experiential activities that bring teams together
-        </p>
+      <div className="px-4 pt-14 pb-6 sm:px-6 bg-[#FAF7F2]">
+        <div className="mx-auto max-w-5xl">
+          <h2
+            className="max-w-max border-b border-[#1d9b76] mb-2 pb-1 text-2xl font-bold uppercase tracking-wide sm:text-3xl"
+            style={{ color: "#C4783A" }}
+          >
+            What We Do
+          </h2>
+          <p className="mt-3 text-base text-[#6b7280]">
+            Experiential activities that bring teams together
+          </p>
+        </div>
       </div>
 
       {services.map((service, index) => {
@@ -93,7 +95,7 @@ export default function Services() {
               }`}
             >
               {/* Image */}
-              <div className="relative h-72 w-full overflow-hidden rounded-2xl shadow-md md:h-96 md:w-1/2 shrink-0">
+              <div className="relative h-72 w-full overflow-hidden rounded-xl shadow-sm md:h-96 md:w-1/2 shrink-0" style={{ outline: "1px solid rgba(196,120,58,0.12)" }}>
                 <Image
                   src={service.image}
                   alt={service.title}
@@ -106,25 +108,20 @@ export default function Services() {
               {/* Text */}
               <div className="md:w-1/2">
                 <h3
-                  className="text-2xl font-bold leading-snug md:text-3xl"
-                  style={{ color: "#C4783A" }}
+                  className="text-xl font-bold leading-snug md:text-2xl"
+                  style={{ color: "#C4783A", letterSpacing: "-0.01em" }}
                 >
                   {service.title}
                 </h3>
                 <p className="mt-4 text-base leading-relaxed text-[#6b7280]">
                   {service.description}
                 </p>
-                {/* Highlight pills */}
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {service.highlights.map((h) => (
-                    <span
-                      key={h}
-                      className="rounded-full px-3 py-1 text-xs font-semibold text-white"
-                      style={{ backgroundColor: "#1d9b76" }}
-                    >
-                      {h}
-                    </span>
-                  ))}
+                {/* Highlights — inline prose */}
+                <div className="mt-5 flex items-start gap-3">
+                  <div className="mt-1.5 h-px w-6 shrink-0" style={{ backgroundColor: "#1d9b76" }} />
+                  <p className="text-sm leading-relaxed text-[#6b7280]">
+                    {service.highlights.join(" · ")}
+                  </p>
                 </div>
                 <a
                   href={service.link}

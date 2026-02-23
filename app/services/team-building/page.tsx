@@ -99,17 +99,12 @@ export default function TeamBuildingPage() {
           it&apos;s painting, crafting, or blending perfumes — every activity is structured to spark
           conversation, build trust, and send people home with something they made themselves.
         </p>
-        {/* Highlight pills */}
-        <div className="mt-6 flex flex-wrap gap-2">
-          {highlights.map((h) => (
-            <span
-              key={h}
-              className="rounded-full px-3 py-1 text-sm font-medium text-white"
-              style={{ backgroundColor: "#1d9b76" }}
-            >
-              {h}
-            </span>
-          ))}
+        {/* Highlights — inline prose */}
+        <div className="mt-6 flex items-start gap-3">
+          <div className="mt-1.5 h-px w-6 shrink-0" style={{ backgroundColor: "#1d9b76" }} />
+          <p className="text-sm leading-relaxed text-[#6b7280]">
+            {highlights.join(" · ")}
+          </p>
         </div>
       </section>
 

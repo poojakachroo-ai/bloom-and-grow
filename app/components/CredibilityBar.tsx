@@ -19,12 +19,12 @@ export default function CredibilityBar() {
             className="flex flex-col items-center justify-center px-4 text-center first:pl-0 last:pr-0"
           >
             <span
-              className="text-3xl font-bold"
+              className="text-3xl font-bold tracking-tight"
               style={{ color: "#C4783A" }}
             >
               {stat.number}
             </span>
-            <span className="mt-1 text-sm text-[#6B7280]">
+            <span className="mt-1.5 text-xs uppercase tracking-widest text-[#6B7280]">
               {stat.label}
             </span>
           </div>

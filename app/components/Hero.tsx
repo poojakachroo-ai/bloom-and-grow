@@ -109,7 +109,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-10 flex flex-col items-start justify-center px-6 md:px-16">
         <p
           className="mb-4 text-xs font-semibold uppercase tracking-widest md:text-sm"
-          style={{ color: "#4ade80" }}
+          style={{ color: "rgba(255,255,255,0.75)" }}
         >
           {slide.subtext}
         </p>
@@ -117,15 +117,16 @@ export default function Hero() {
           {slide.headline}
         </h1>
         {/* Dot indicators */}
-        <div className="mt-10 flex gap-3">
+        <div className="mt-10 flex items-center gap-2">
           {slides.map((_, i) => (
             <button
               key={i}
               type="button"
               onClick={() => setCurrentIndex(i)}
-              className="h-2.5 w-2.5 rounded-full transition md:h-3 md:w-3"
+              className="h-1.5 rounded-full transition-all duration-300"
               style={{
-                backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.4)",
+                width: i === currentIndex ? "2rem" : "0.5rem",
+                backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.45)",
               }}
               aria-label={`Go to slide ${i + 1}`}
             />

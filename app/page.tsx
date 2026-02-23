@@ -19,8 +19,8 @@ export default function Home() {
       <main>
         <Hero />
         <CredibilityBar />
-        <WhyUs />
         <Services />
+        <WhyUs />
         <Clients />
         <Testimonials />
         <Founder />

@@ -15,10 +15,16 @@ const clients = [
 
 export default function Clients() {
   return (
-    <section className="py-4 bg-white">
-      <h2 className="text-center text-2xl font-bold mb-8" style={{color: '#C4783A'}}>
+    <section className="py-12 bg-white">
+      <h2
+        className="mb-1 text-center text-2xl font-bold uppercase tracking-wide sm:text-3xl"
+        style={{ color: "#C4783A" }}
+      >
         Trusted By
       </h2>
+      <p className="mb-10 text-center text-sm text-[#6b7280]">
+        Teams from India&apos;s leading companies
+      </p>
       <div className="overflow-hidden">
         <div className="flex animate-marquee gap-10 items-center">
           {[...clients, ...clients].map((client, i) => (
