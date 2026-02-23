@@ -32,12 +32,26 @@ const activities = [
 ];
 
 const highlights = [
-  "Mural Painting",
-  "Canvas Art",
-  "Perfume Blending",
-  "Origami & Paper Craft",
-  "Collaborative Installations",
-  "Sketch & Doodle Sessions",
+  "Canvas Painting",
+  "T-Shirt Painting",
+  "Pottery",
+  "Dot Mandala",
+  "String Art",
+  "Fluid Art",
+  "Tie & Dye",
+  "Big Picture Mural",
+  "Coaster Painting",
+  "Block Printing",
+  "Macrame Keychain",
+  "Sand Art",
+  "Finger Painting",
+  "Decoupage",
+  "Lippan Art",
+  "Texture Art",
+  "Clay Hand-building",
+  "Coffee Mixology",
+  "Perfumery",
+  "Tisane Tea Workshop",
 ];
 
 export default function TeamBuildingPage() {

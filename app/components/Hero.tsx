@@ -10,7 +10,7 @@ const slides = [
     subtext: "Team Building & Corporate Events",
   },
   {
-    image: "/images/hero3.jpg",
+    image: "/images/service-festival.jpg",
     headline: "Unforgettable Team Experiences, Beautifully Crafted",
     subtext: "Festivals · Women's Day · Diwali · Christmas",
   },

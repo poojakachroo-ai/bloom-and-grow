@@ -3,13 +3,17 @@
 import Image from "next/image";
 import { content } from "../../content";
 
-const photos = [
-  "/images/hero1.jpg",
-  "/images/hero2.jpg",
-  "/images/hero3.jpg",
-  "/images/service-festival.jpg",
-  "/images/tb-painting.jpg",
-  "/images/tb-perfume.jpg",
+const posts = [
+  { img: "/images/ig/ig-DU_L2utk68N.jpg",  url: "https://www.instagram.com/p/DU_L2utk68N/" },
+  { img: "/images/ig/ig-DUsi-shkzWE.jpg",   url: "https://www.instagram.com/p/DUsi-shkzWE/" },
+  { img: "/images/ig/ig-DTneypDk7ul.jpg",   url: "https://www.instagram.com/p/DTneypDk7ul/" },
+  { img: "/images/ig/ig-DTFeVE9k426.jpg",   url: "https://www.instagram.com/p/DTFeVE9k426/" },
+  { img: "/images/ig/ig-DREictFk8tH.jpg",   url: "https://www.instagram.com/p/DREictFk8tH/" },
+  { img: "/images/ig/ig-DQCI2YUk0-_.jpg",   url: "https://www.instagram.com/p/DQCI2YUk0-_/" },
+  { img: "/images/ig/ig-DP0QjxYEzFo.jpg",   url: "https://www.instagram.com/p/DP0QjxYEzFo/" },
+  { img: "/images/ig/ig-DSmk1Cuk5NQ.jpg",   url: "https://www.instagram.com/p/DSmk1Cuk5NQ/" },
+  { img: "/images/ig/ig-DScbgxSk1RV.jpg",   url: "https://www.instagram.com/p/DScbgxSk1RV/" },
+  { img: "/images/ig/ig-DSCeWZOk9J3.jpg",   url: "https://www.instagram.com/p/DSCeWZOk9J3/" },
 ];
 
 export default function InstagramGrid() {
@@ -19,27 +23,27 @@ export default function InstagramGrid() {
         className="mb-2 text-center text-2xl font-bold uppercase tracking-wide sm:text-3xl"
         style={{ color: "#C4783A" }}
       >
-        #OnTheGram
+        Made With Heart
       </h2>
       <p className="mb-8 text-center text-sm text-[#6b7280]">
-        Follow our journey on Instagram
+        Peek into our workshops — follow @bloomandgrowindia for more
       </p>
 
-      <div className="mx-auto grid max-w-4xl grid-cols-3 gap-1 sm:gap-2">
-        {photos.map((src, i) => (
+      <div className="mx-auto grid max-w-4xl grid-cols-3 gap-1 sm:gap-2 md:grid-cols-5">
+        {posts.map((post, i) => (
           <a
             key={i}
-            href={content.company.social.instagram}
+            href={post.url}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative block aspect-square overflow-hidden"
           >
             <Image
-              src={src}
+              src={post.img}
               alt=""
               fill
               className="object-cover object-center transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 640px) 33vw, (max-width: 1024px) 25vw, 200px"
+              sizes="(max-width: 640px) 33vw, (max-width: 1024px) 20vw, 160px"
             />
             {/* Hover overlay */}
             <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors duration-300 group-hover:bg-black/30">

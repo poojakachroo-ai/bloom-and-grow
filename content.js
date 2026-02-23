@@ -10,7 +10,7 @@ export const content = {
         "Hi! I'm interested in planning a corporate event or workshop with Bloom & Grow. Can we connect?",
     },
     social: {
-      instagram: "#",
+      instagram: "https://www.instagram.com/bloomandgrowindia",
     },
   },
   services: [
