@@ -70,6 +70,7 @@ export default function Hero() {
           className="object-cover object-center"
           priority={currentIndex === 0}
           sizes="100vw"
+          quality={90}
         />
       </div>
 
@@ -78,7 +79,7 @@ export default function Hero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%)",
+            "linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.1) 100%)",
         }}
       />
 
@@ -104,30 +105,27 @@ export default function Hero() {
         </svg>
       </button>
 
-      {/* Content block: subtext → headline → dots (order top to bottom), well above browser chrome */}
-      <div
-        className="absolute bottom-24 left-0 right-0 z-10 flex flex-col gap-4 px-4 md:px-8"
-        style={{ paddingBottom: "calc(env(safe-area-inset-bottom, 0px) + 1rem)" }}
-      >
+      {/* Content block — centred vertically in the hero */}
+      <div className="absolute inset-0 z-10 flex flex-col items-start justify-center px-6 md:px-16">
         <p
-          className="text-xs font-medium uppercase tracking-widest md:text-sm"
-          style={{ color: "#1d9b76" }}
+          className="mb-4 text-xs font-semibold uppercase tracking-widest md:text-sm"
+          style={{ color: "#4ade80" }}
         >
           {slide.subtext}
         </p>
-        <h1 className="max-w-2xl text-2xl font-bold leading-tight text-white line-clamp-2 sm:text-3xl md:text-4xl lg:text-5xl">
+        <h1 className="max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl lg:text-7xl">
           {slide.headline}
         </h1>
-        {/* Dot indicators - below headline */}
-        <div className="mt-4 flex justify-center gap-2">
+        {/* Dot indicators */}
+        <div className="mt-10 flex gap-3">
           {slides.map((_, i) => (
             <button
               key={i}
               type="button"
               onClick={() => setCurrentIndex(i)}
-              className="h-2 w-2 rounded-full transition md:h-2.5 md:w-2.5"
+              className="h-2.5 w-2.5 rounded-full transition md:h-3 md:w-3"
               style={{
-                backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.5)",
+                backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.4)",
               }}
               aria-label={`Go to slide ${i + 1}`}
             />
