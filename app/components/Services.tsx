@@ -6,7 +6,7 @@ const services = [
   {
     title: "Team Building & Corporate Events",
     description:
-      "Hands-on collaborative experiences that spark creativity and build real connections. From mural painting to canvas art and collaborative installations — activities your team will actually remember.",
+      "Hands-on, guided workshops where your team creates something together — and leaves with something they made themselves. No experience needed, just a willingness to show up and try.",
     highlights: [
       "Canvas Painting",
       "T-Shirt Painting",
@@ -28,7 +28,7 @@ const services = [
   {
     title: "Festival & Theme-Based Activities",
     description:
-      "Make every celebration meaningful and participative. We design creative experiences around Diwali, Christmas, Women's Day, Independence Day and more — tailored to your team size and culture.",
+      "Turn every company milestone into a moment people look forward to. We bring the craft, the facilitation, and the energy — you just show up and celebrate.",
     highlights: ["Diwali", "Christmas", "Women's Day", "Independence Day"],
     image: "/images/service-festival.jpg",
     link: "/services/festival-events",
@@ -37,7 +37,7 @@ const services = [
   {
     title: "Wellness & CSR Engagement",
     description:
-      "Purposeful activities that nurture wellbeing and give back. From terrarium building to nature-based workshops — experiences that align with your company's wellness and CSR goals.",
+      "Activities that slow things down in the best way — helping people reconnect with themselves, with nature, and with the communities around them. Thoughtful, purposeful, and genuinely good for the soul.",
     highlights: [
       "Terrarium Building",
       "Nature Workshops",
@@ -51,7 +51,7 @@ const services = [
   {
     title: "Corporate Gifting & Branded Keepsakes",
     description:
-      "Meaningful, handcrafted gifts that leave a lasting impression. From custom art kits to branded wellness hampers — thoughtfully curated for employees, clients, and events.",
+      "Something they'll actually keep. We design gifts that feel personal and considered — not another pen or tote bag, but something made with intention.",
     highlights: [
       "Custom Art Kits",
       "Wellness Hampers",
@@ -125,8 +125,7 @@ export default function Services() {
                 </div>
                 <a
                   href={service.link}
-                  className="mt-6 inline-block rounded-full border-2 px-6 py-2.5 text-sm font-semibold transition-colors hover:bg-[#C4783A] hover:text-white"
-                  style={{ borderColor: "#C4783A", color: "#C4783A" }}
+                  className="mt-6 inline-block rounded-full border-2 border-[#C4783A] px-6 py-2.5 text-sm font-semibold text-[#C4783A] transition-colors hover:bg-[#C4783A] hover:text-white"
                 >
                   Learn More →
                 </a>
