@@ -1,9 +1,10 @@
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import CredibilityBar from "./components/CredibilityBar";
-import WhyUs from "./components/WhyUs";
 import Services from "./components/Services";
+import WhyUs from "./components/WhyUs";
 import Clients from "./components/Clients";
+import CaseStudies from "./components/CaseStudies";
 import Testimonials from "./components/Testimonials";
 import Founder from "./components/Founder";
 import InstagramGrid from "./components/InstagramGrid";
@@ -20,6 +21,7 @@ export default function Home() {
         <Services />
         <WhyUs />
         <Clients />
+        <CaseStudies />
         <Testimonials />
         <Founder />
         <InstagramGrid />
