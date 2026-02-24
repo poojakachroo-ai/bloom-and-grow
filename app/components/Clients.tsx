@@ -1,46 +1,47 @@
 'use client'
 
+import Image from 'next/image'
+
 const clients = [
-  { name: "Deloitte", icon: "deloitte", color: "#86BC25" },
-  { name: "Google", icon: "google", color: "#4285F4" },
-  { name: "PwC", icon: "pwc", color: "#D04A02" },
-  { name: "Goldman Sachs", icon: "goldmansachs", color: "#6495ED" },
-  { name: "IKEA", icon: "ikea", color: "#0058A3" },
-  { name: "Intuit", icon: "intuit", color: "#236cff" },
-  { name: "Wipro", icon: "wipro", color: "#341C6A" },
-  { name: "Walmart", icon: "walmart", color: "#0071CE" },
-  { name: "Titan", icon: "titan", color: "#CC0000" },
-  { name: "Urban Ladder", icon: "urbanladder", color: "#FF6B35" }
+  { name: "Google",        logo: "/images/clients/google.svg",        w: 272, h: 92  },
+  { name: "IKEA",          logo: "/images/clients/ikea.svg",          w: 100, h: 40  },
+  { name: "Wipro",         logo: "/images/clients/wipro.svg",         w: 377, h: 297 },
+  { name: "PwC",           logo: "/images/clients/pwc.svg",           w: 200, h: 80  },
+  { name: "Deloitte",      logo: "/images/clients/deloitte.svg",      w: 200, h: 60  },
+  { name: "Goldman Sachs", logo: "/images/clients/goldman-sachs.svg", w: 240, h: 60  },
+  { name: "Walmart",       logo: "/images/clients/walmart.svg",       w: 220, h: 60  },
+  { name: "Intuit",        logo: "/images/clients/intuit.svg",        w: 160, h: 60  },
+  { name: "Titan",         logo: "/images/clients/titan.svg",         w: 160, h: 60  },
+  { name: "Urban Ladder",  logo: "/images/clients/urban-ladder.svg",  w: 200, h: 60  },
 ]
 
 export default function Clients() {
   return (
-    <section className="py-12 bg-white">
-      <h2
-        className="mb-1 text-center text-2xl font-bold uppercase tracking-wide sm:text-3xl"
-        style={{ color: "#C4783A" }}
-      >
-        Trusted By
-      </h2>
-      <p className="mb-10 text-center text-sm text-[#6b7280]">
-        Teams from India&apos;s leading companies
+    <section className="bg-white py-8 overflow-hidden">
+      <p className="mb-6 text-center text-xs font-semibold uppercase tracking-[0.2em] text-[#1d9b76]">
+        Trusted by teams at
       </p>
-      <div className="overflow-hidden">
-        <div className="flex animate-marquee gap-10 items-center">
-          {[...clients, ...clients].map((client, i) => (
-            <div key={i} className="shrink-0 flex items-center justify-center">
-              <img
-                src={`https://cdn.simpleicons.org/${client.icon}`}
+
+      {/* Scrollable on mobile, single centred row on desktop */}
+      <div className="overflow-x-auto scrollbar-none">
+        <div
+          className="flex items-center justify-start gap-8 px-8 md:justify-center"
+          style={{ minWidth: 'max-content' }}
+        >
+          {clients.map((client) => (
+            <div
+              key={client.name}
+              className="shrink-0 flex items-center justify-center"
+              style={{ height: 44 }}
+            >
+              <Image
+                src={client.logo}
                 alt={client.name}
-                className="h-8 w-8 object-contain"
-                style={{ filter: 'grayscale(100%) opacity(60%)' }}
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none'
-                  const sibling = e.currentTarget.nextElementSibling as HTMLElement
-                  if (sibling) sibling.style.display = 'block'
-                }}
+                width={client.w}
+                height={client.h}
+                className="h-full w-auto object-contain"
+                style={{ maxHeight: 44 }}
               />
-              <span className="text-xs text-gray-500 font-medium whitespace-nowrap hidden">{client.name}</span>
             </div>
           ))}
         </div>

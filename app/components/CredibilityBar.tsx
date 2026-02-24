@@ -9,7 +9,7 @@ const stats = [
 export default function CredibilityBar() {
   return (
     <section
-      className="border-y px-4 py-5"
+      className="border-y px-4 py-4"
       style={{ borderColor: "#1d9b76", backgroundColor: "white" }}
     >
       <div className="mx-auto grid max-w-5xl grid-cols-3 divide-x divide-[#1d9b76]">

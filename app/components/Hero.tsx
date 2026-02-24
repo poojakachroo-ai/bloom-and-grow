@@ -5,17 +5,20 @@ import Image from "next/image";
 
 const slides = [
   {
-    image: "/images/hero2.jpg",
+    image: "/images/hero-abstract.svg",
+    isAbstract: true,
     headline: "Where Co-creation Brings Teams Together",
     subtext: "Team Building & Corporate Events",
   },
   {
     image: "/images/service-festival.jpg",
+    isAbstract: false,
     headline: "Unforgettable Team Experiences, Beautifully Crafted",
     subtext: "Festivals · Women's Day · Diwali · Christmas",
   },
   {
     image: "/images/hero1.jpg",
+    isAbstract: false,
     headline: "Green Hands, Happy Teams",
     subtext: "Wellness & CSR Engagement",
   },
@@ -63,23 +66,34 @@ export default function Hero() {
     >
       {/* Background image */}
       <div className="absolute inset-0">
-        <Image
-          src={slide.image}
-          alt=""
-          fill
-          className="object-cover object-center"
-          priority={currentIndex === 0}
-          sizes="100vw"
-          quality={90}
-        />
+        {slide.isAbstract ? (
+          /* SVG abstract illustration — rendered as plain img so filters/gradients work */
+          <img
+            src={slide.image}
+            alt=""
+            aria-hidden
+            className="h-full w-full object-cover object-center"
+          />
+        ) : (
+          <Image
+            src={slide.image}
+            alt=""
+            fill
+            className="object-cover object-center"
+            priority={currentIndex === 0}
+            sizes="100vw"
+            quality={90}
+          />
+        )}
       </div>
 
-      {/* Dark gradient overlay */}
+      {/* Dark gradient overlay — lighter for the abstract slide (already dark) */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            "linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.1) 100%)",
+          background: slide.isAbstract
+            ? "linear-gradient(to right, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.05) 100%)"
+            : "linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.1) 100%)",
         }}
       />
 

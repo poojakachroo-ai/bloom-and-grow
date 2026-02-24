@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function Founder() {
   return (
-    <section className="bg-[#FAF7F2] px-4 py-14 sm:px-6">
-      <div className="mx-auto flex max-w-4xl flex-col items-center gap-10 md:flex-row md:items-start">
+    <section id="about" className="bg-[#FAF7F2] px-4 py-10 sm:px-6">
+      <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 md:flex-row md:items-start">
         {/* Photo */}
         <div className="relative h-64 w-64 shrink-0 overflow-hidden rounded-full shadow-lg ring-4 ring-[#1d9b76]/30 md:h-72 md:w-72">
           <Image

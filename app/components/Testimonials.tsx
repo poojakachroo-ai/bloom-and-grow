@@ -1,10 +1,15 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useCallback } from "react";
 import { content } from "../../content";
 
 const SWIPE_THRESHOLD = 50;
-const testimonials = content.testimonials;
+
+const testimonials = content.testimonials.map((t) => ({
+  ...t,
+  logo: `/images/clients/${t.company.toLowerCase().replace(/\s+/g, "-")}.svg`,
+}));
 
 function StarRating() {
   return (
@@ -18,39 +23,37 @@ function StarRating() {
   );
 }
 
-function PolaroidCard({
+function TestimonialCard({
   quote,
   author,
   company,
+  logo,
   rotation,
 }: {
   quote: string;
   author: string;
   company: string;
+  logo: string;
   rotation: number;
 }) {
   return (
     <article
       className="flex flex-col bg-white p-4 pb-6 shadow-lg"
-      style={{
-        transform: `rotate(${rotation}deg)`,
-        maxWidth: 280,
-      }}
+      style={{ transform: `rotate(${rotation}deg)`, maxWidth: 280 }}
     >
-      {/* Polaroid photo area */}
+      {/* Company logo area — replaces blank polaroid */}
       <div
-        className="mb-4 h-36 w-full"
-        style={{ backgroundColor: "#f0ebe3" }}
+        className="mb-4 flex h-28 w-full items-center justify-center"
+        style={{ backgroundColor: "#f7f4ef" }}
         aria-hidden
       >
-        <div className="flex h-full items-center justify-center">
-          <span
-            className="font-serif text-7xl leading-none"
-            style={{ color: "#C4783A", fontFamily: "Georgia, serif" }}
-          >
-            &ldquo;
-          </span>
-        </div>
+        <Image
+          src={logo}
+          alt={company}
+          width={140}
+          height={48}
+          className="max-h-12 w-auto object-contain"
+        />
       </div>
 
       <StarRating />
@@ -88,8 +91,7 @@ export default function Testimonials() {
   const handleTouchEnd = useCallback(
     (e: React.TouchEvent) => {
       if (touchStartX === null) return;
-      const endX = e.changedTouches[0].clientX;
-      const diff = touchStartX - endX;
+      const diff = touchStartX - e.changedTouches[0].clientX;
       if (Math.abs(diff) >= SWIPE_THRESHOLD) {
         if (diff > 0) goNext();
         else goPrev();
@@ -100,36 +102,27 @@ export default function Testimonials() {
   );
 
   return (
-    <section className="px-4 py-14" style={{ backgroundColor: "#C4783A" }}>
-      <h2 className="mb-2 text-center text-2xl font-bold uppercase tracking-wide text-white sm:text-3xl">
-        What Our Clients Say
+    <section className="px-4 py-10" style={{ backgroundColor: "#C4783A" }}>
+      <p className="mb-2 text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/60">
+        Client Stories
+      </p>
+      <h2 className="mb-2 text-center text-2xl font-bold text-white sm:text-3xl">
+        What our clients say
       </h2>
-      <p className="mb-12 text-center text-sm text-white/80">
+      <p className="mb-8 text-center text-sm text-white/70">
         Real experiences from real teams
       </p>
 
-      {/* Mobile: single card swipeable */}
-      <div
-        className="md:hidden"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
+      {/* Mobile: swipeable single card */}
+      <div className="md:hidden" onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         <div className="flex justify-center overflow-hidden">
           <div
             className="flex transition-transform duration-300 ease-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)`, width: "100%" }}
           >
             {testimonials.map((t, i) => (
-              <div
-                key={i}
-                className="w-full shrink-0 flex justify-center px-4"
-              >
-                <PolaroidCard
-                  quote={t.quote}
-                  author={t.author}
-                  company={t.company}
-                  rotation={rotations[i % rotations.length]}
-                />
+              <div key={i} className="w-full shrink-0 flex justify-center px-4">
+                <TestimonialCard {...t} rotation={rotations[i % rotations.length]} />
               </div>
             ))}
           </div>
@@ -141,9 +134,7 @@ export default function Testimonials() {
               type="button"
               onClick={() => setCurrentIndex(i)}
               className="h-2 w-2 rounded-full transition"
-              style={{
-                backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.5)",
-              }}
+              style={{ backgroundColor: i === currentIndex ? "white" : "rgba(255,255,255,0.5)" }}
               aria-label={`Go to testimonial ${i + 1}`}
             />
           ))}
@@ -153,13 +144,7 @@ export default function Testimonials() {
       {/* Desktop: scattered polaroid layout */}
       <div className="hidden md:flex md:flex-wrap md:justify-center md:gap-12 md:px-8">
         {testimonials.map((t, i) => (
-          <PolaroidCard
-            key={i}
-            quote={t.quote}
-            author={t.author}
-            company={t.company}
-            rotation={rotations[i % rotations.length]}
-          />
+          <TestimonialCard key={i} {...t} rotation={rotations[i % rotations.length]} />
         ))}
       </div>
     </section>

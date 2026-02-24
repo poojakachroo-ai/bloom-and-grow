@@ -66,17 +66,20 @@ const services = [
 
 export default function Services() {
   return (
-    <section>
-      <div className="px-4 pt-14 pb-6 sm:px-6 bg-[#FAF7F2]">
+    <section id="services">
+      <div className="px-4 pt-14 pb-4 sm:px-6 bg-[#FAF7F2]">
         <div className="mx-auto max-w-5xl">
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#1d9b76]">
+            What We Do
+          </p>
           <h2
-            className="max-w-max border-b border-[#1d9b76] mb-2 pb-1 text-2xl font-bold uppercase tracking-wide sm:text-3xl"
+            className="text-2xl font-bold sm:text-3xl"
             style={{ color: "#C4783A" }}
           >
-            What We Do
+            Experiences that bring teams together
           </h2>
           <p className="mt-3 text-base text-[#6b7280]">
-            Experiential activities that bring teams together
+            Hands-on, guided activities — designed for everyone in the room.
           </p>
         </div>
       </div>
@@ -87,7 +90,7 @@ export default function Services() {
           <div
             key={service.title}
             style={{ backgroundColor: service.bg }}
-            className="px-4 py-12 sm:px-6"
+            className="px-4 py-8 sm:px-6"
           >
             <div
               className={`mx-auto flex max-w-5xl flex-col gap-8 md:flex-row md:items-center ${
