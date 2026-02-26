@@ -24,6 +24,7 @@ const services = [
     image: "/images/hero2.jpg",
     link: "/services/team-building",
     bg: "#FAF7F2",
+    youtubeLink: "https://www.youtube.com/playlist?list=PLpQYrFNWRFZFGRmTmb2jc6WbO1rAFLLd9",
   },
   {
     title: "Festival & Theme-Based Activities",
@@ -35,17 +36,19 @@ const services = [
     bg: "#f0ebe3",
   },
   {
-    title: "Wellness & CSR Engagement",
+    title: "Brand Activation / Customer Engagement",
     description:
-      "Activities that slow things down in the best way — helping people reconnect with themselves, with nature, and with the communities around them. Thoughtful, purposeful, and genuinely good for the soul.",
+      "Creative, hands-on experiences that bring your brand to life. We design interactive activations and engagement activities that connect your brand with customers in meaningful, memorable ways.",
     highlights: [
-      "Terrarium Building",
-      "Nature Workshops",
-      "Go Green Drives",
-      "Mindful Art Sessions",
+      "Brand Activation",
+      "Product Launch Events",
+      "Customer Engagement",
+      "Experiential Marketing",
+      "Live Art Demonstrations",
+      "Interactive Workshops",
     ],
     image: "/images/hero1.jpg",
-    link: "/services/wellness-csr",
+    link: "/services/brand-activation",
     bg: "#FAF7F2",
   },
   {
@@ -119,13 +122,38 @@ export default function Services() {
                 <p className="mt-4 text-base leading-relaxed text-[#6b7280]">
                   {service.description}
                 </p>
-                {/* Highlights — inline prose */}
-                <div className="mt-5 flex items-start gap-3">
-                  <div className="mt-1.5 h-px w-6 shrink-0" style={{ backgroundColor: "#1d9b76" }} />
-                  <p className="text-sm leading-relaxed text-[#6b7280]">
-                    {service.highlights.join(" · ")}
-                  </p>
-                </div>
+                {/* Highlights */}
+                {service.youtubeLink ? (
+                  <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+                    {service.highlights.map((item, i) => (
+                      <span
+                        key={item}
+                        className="flex items-center gap-1.5 text-sm"
+                        style={{ color: i % 2 === 0 ? "#1d9b76" : "#C4783A" }}
+                      >
+                        <span className="text-xs">●</span>
+                        {item}
+                      </span>
+                    ))}
+                    <a
+                      href={service.youtubeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-sm font-medium transition-opacity hover:opacity-70"
+                      style={{ color: "#FF0000" }}
+                    >
+                      <span className="text-xs">▶</span>
+                      Watch on YouTube
+                    </a>
+                  </div>
+                ) : (
+                  <div className="mt-5 flex items-start gap-3">
+                    <div className="mt-1.5 h-px w-6 shrink-0" style={{ backgroundColor: "#1d9b76" }} />
+                    <p className="text-sm leading-relaxed text-[#6b7280]">
+                      {service.highlights.join(" · ")}
+                    </p>
+                  </div>
+                )}
                 <a
                   href={service.link}
                   className="mt-6 inline-block rounded-full border-2 border-[#C4783A] px-6 py-2.5 text-sm font-semibold text-[#C4783A] transition-colors hover:bg-[#C4783A] hover:text-white"
