@@ -34,6 +34,7 @@ const services = [
     image: "/images/service-festival.jpg",
     link: "/services/festival-events",
     bg: "#f0ebe3",
+    youtubeLink: "https://www.youtube.com/playlist?list=PLpQYrFNWRFZHaCbrt7Y-0f_RLt2tvhCpb",
   },
   {
     title: "Brand Activation / Customer Engagement",
@@ -50,6 +51,7 @@ const services = [
     image: "/images/hero1.jpg",
     link: "/services/brand-activation",
     bg: "#FAF7F2",
+    youtubeLink: "https://www.youtube.com/playlist?list=PLpQYrFNWRFZGwLu07Zis03wAdwCwzVBnq",
   },
   {
     title: "Corporate Gifting & Branded Keepsakes",
@@ -123,18 +125,18 @@ export default function Services() {
                   {service.description}
                 </p>
                 {/* Highlights */}
-                {service.youtubeLink ? (
-                  <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
-                    {service.highlights.map((item, i) => (
-                      <span
-                        key={item}
-                        className="flex items-center gap-1.5 text-sm"
-                        style={{ color: i % 2 === 0 ? "#1d9b76" : "#C4783A" }}
-                      >
-                        <span className="text-xs">●</span>
-                        {item}
-                      </span>
-                    ))}
+                <div className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2">
+                  {service.highlights.map((item, i) => (
+                    <span
+                      key={item}
+                      className="flex items-center gap-1.5 text-sm"
+                      style={{ color: i % 2 === 0 ? "#1d9b76" : "#C4783A" }}
+                    >
+                      <span className="text-xs">●</span>
+                      {item}
+                    </span>
+                  ))}
+                  {service.youtubeLink && (
                     <a
                       href={service.youtubeLink}
                       target="_blank"
@@ -145,15 +147,8 @@ export default function Services() {
                       <span className="text-xs">▶</span>
                       Watch on YouTube
                     </a>
-                  </div>
-                ) : (
-                  <div className="mt-5 flex items-start gap-3">
-                    <div className="mt-1.5 h-px w-6 shrink-0" style={{ backgroundColor: "#1d9b76" }} />
-                    <p className="text-sm leading-relaxed text-[#6b7280]">
-                      {service.highlights.join(" · ")}
-                    </p>
-                  </div>
-                )}
+                  )}
+                </div>
                 <a
                   href={service.link}
                   className="mt-6 inline-block rounded-full border-2 border-[#C4783A] px-6 py-2.5 text-sm font-semibold text-[#C4783A] transition-colors hover:bg-[#C4783A] hover:text-white"
